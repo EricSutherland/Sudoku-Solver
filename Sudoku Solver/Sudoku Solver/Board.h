@@ -12,8 +12,9 @@ class Board
 	
 	void initialiseArrays();
 public:
-	Board();
+	Board(std::string p_fileName);
 	std::string Display();
+	std::string Load(std::string p_fileName);
 	~Board();
 };
 

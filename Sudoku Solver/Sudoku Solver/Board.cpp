@@ -1,9 +1,13 @@
 #include "stdafx.h"
 #include "Board.h"
 #include "SmallSquare.h"
+#include <iostream>
+#include <sstream>
+#include <fstream> 
 
-Board::Board()
+Board::Board(std::string p_fileName)
 {
+	std::string puzzle = this->Load(p_fileName);
 	int rowNum = 0;
 	int columnNum = 0;
 	int largeSquareNum = 0;
@@ -12,8 +16,15 @@ Board::Board()
 
 	for (int i = 0 ; i < 81 ; i++)
 	{
-
-		SmallSquare* tempSmallSquare = new SmallSquare(m_rows[rowNum], m_columns[columnNum], m_largeSquares[largeSquareNum]);
+		SmallSquare* tempSmallSquare;
+		if (puzzle[i] != '0')
+		{
+			tempSmallSquare = new SmallSquare(m_rows[rowNum], m_columns[columnNum], m_largeSquares[largeSquareNum], puzzle[i] - '0');
+		}
+		else
+		{
+			tempSmallSquare = new SmallSquare(m_rows[rowNum], m_columns[columnNum], m_largeSquares[largeSquareNum]);
+		}
 
 		m_largeSquares[largeSquareNum]->AddSquare(tempSmallSquare);
 		m_rows[rowNum]->AddSquare(tempSmallSquare);
@@ -54,6 +65,21 @@ std::string Board::Display()
 	}
 
 	return output;
+}
+
+std::string Board::Load(std::string p_fileName)
+{
+	std::ifstream inFile;
+	inFile.open(p_fileName);
+
+	std::stringstream strStream;
+	strStream << inFile.rdbuf();//read the file
+	std::string str = strStream.str();
+	str.erase(std::remove(str.begin(), str.end(), '+'), str.end());
+	str.erase(std::remove(str.begin(), str.end(), '-'), str.end());
+	str.erase(std::remove(str.begin(), str.end(), '|'), str.end());
+	str.erase(std::remove(str.begin(), str.end(), '\n'), str.end());
+	return str;
 }
 
 void Board::initialiseArrays()
