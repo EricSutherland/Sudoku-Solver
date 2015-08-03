@@ -17,7 +17,7 @@ Board::Board(std::string p_fileName)
 	for (int i = 0 ; i < 81 ; i++)
 	{
 		SmallSquare* tempSmallSquare;
-		if (puzzle[i] != '0')
+		if (puzzle[i] != ' ' && puzzle[i] != '0')
 		{
 			tempSmallSquare = new SmallSquare(m_rows[rowNum], m_columns[columnNum], m_largeSquares[largeSquareNum], puzzle[i] - '0');
 		}
@@ -25,7 +25,7 @@ Board::Board(std::string p_fileName)
 		{
 			tempSmallSquare = new SmallSquare(m_rows[rowNum], m_columns[columnNum], m_largeSquares[largeSquareNum]);
 		}
-
+		m_squares[i] = tempSmallSquare;
 		m_largeSquares[largeSquareNum]->AddSquare(tempSmallSquare);
 		m_rows[rowNum]->AddSquare(tempSmallSquare);
 		m_columns[columnNum]->AddSquare(tempSmallSquare);

@@ -78,22 +78,29 @@
   <ItemGroup>
     <Text Include="easy1.txt" />
     <Text Include="ReadMe.txt" />
+    <Text Include="Sudoku2.txt" />
+    <Text Include="sudoku3-hard.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Column.h" />
+    <ClInclude Include="ISudokuPiece.h" />
+    <ClInclude Include="IRules.h" />
     <ClInclude Include="LargeSquare.h" />
     <ClInclude Include="Row.h" />
     <ClInclude Include="SmallSquare.h" />
+    <ClInclude Include="Solver.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Column.cpp" />
+    <ClCompile Include="ISudokuPiece.cpp" />
     <ClCompile Include="LargeSquare.cpp" />
     <ClCompile Include="Row.cpp" />
     <ClCompile Include="SmallSquare.cpp" />
+    <ClCompile Include="Solver.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

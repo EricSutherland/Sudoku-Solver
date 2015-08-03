@@ -6,15 +6,17 @@
 
 class Board
 {
-	LargeSquare* m_largeSquares[9];
-	Row* m_rows[9];
-	Column* m_columns[9];
+	std::array<LargeSquare*, 9> m_largeSquares;
+	std::array<Row*, 9> m_rows;
+	std::array<Column*, 9> m_columns;
+	std::array<SmallSquare*, 81> m_squares;
 	
 	void initialiseArrays();
 public:
 	Board(std::string p_fileName);
 	std::string Display();
 	std::string Load(std::string p_fileName);
+	std::array<SmallSquare*, 81>* GetSquares() { return &m_squares; };
 	~Board();
 };
 

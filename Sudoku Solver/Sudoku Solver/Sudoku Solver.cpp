@@ -3,15 +3,21 @@
 #pragma once
 #include "stdafx.h"
 #include "Board.h"
+#include "Solver.h"
 #include <iostream>
 #include <sstream>
 
+
 int main(int argc, char **argv)
 {
-	Board* board = new Board("easy1.txt");
+	Board* board = new Board("sudoku2.txt");
 
+
+	std::cout << "Start\n";
 	std::cout << board->Display();
 
+	Solver solver = Solver();
+	solver.Sudoku(board);
 	std::cin.ignore();
 	return 0;
 }

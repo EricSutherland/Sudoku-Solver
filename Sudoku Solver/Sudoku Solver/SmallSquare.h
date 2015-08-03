@@ -19,10 +19,15 @@ private:
 public:
 	SmallSquare(Row* p_row, Column* p_column, LargeSquare* p_parent);
 	SmallSquare(Row* p_row, Column* p_column, LargeSquare* p_parent, int p_value);
-	void CheckPossibilities();
+	
+	void RemoveFromPossibilities(int p_value);
+	bool CheckPossibilities();
 
 	int GetValue() { return m_value; }
-
+	Row* GetRow() { return m_row; }
+	Column* GetColumn() { return m_column; }
+	LargeSquare* GetLargeSquare() { return m_parent; }
+	void SetValue(int p_value);
 	~SmallSquare();
 };
 

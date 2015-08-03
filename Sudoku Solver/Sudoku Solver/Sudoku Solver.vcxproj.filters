@@ -19,10 +19,21 @@
     <Filter Include="Source Files\Board">
       <UniqueIdentifier>{73493a33-f7b2-429b-89b9-7dacb3a7d2e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Puzzles">
+      <UniqueIdentifier>{77dae865-b5a2-4758-9a79-b0617a35481f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-    <Text Include="easy1.txt" />
+    <Text Include="easy1.txt">
+      <Filter>Puzzles</Filter>
+    </Text>
+    <Text Include="Sudoku2.txt">
+      <Filter>Puzzles</Filter>
+    </Text>
+    <Text Include="sudoku3-hard.txt">
+      <Filter>Puzzles</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -43,8 +54,17 @@
     <ClInclude Include="SmallSquare.h">
       <Filter>Header Files\Board</Filter>
     </ClInclude>
-    <ClInclude Include="Board.h">
+    <ClInclude Include="Solver.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>Header Files\Board</Filter>
+    </ClInclude>
+    <ClInclude Include="IRules.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ISudokuPiece.h">
+      <Filter>Header Files\Board</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -66,8 +86,14 @@
     <ClCompile Include="LargeSquare.cpp">
       <Filter>Source Files\Board</Filter>
     </ClCompile>
-    <ClCompile Include="Board.cpp">
+    <ClCompile Include="Solver.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>Source Files\Board</Filter>
+    </ClCompile>
+    <ClCompile Include="ISudokuPiece.cpp">
+      <Filter>Source Files\Board</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
